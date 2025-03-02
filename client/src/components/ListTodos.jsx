@@ -10,7 +10,7 @@ const ListTodos = () => {
     //get ALll Todods
     const getTodos = async () => {
         try {
-            const response = await fetch('http://localhost:5000/todos');
+            const response = await fetch(`${import.meta.env.backend_base_url}/todos`);
             const jsonData = await response.json();
             setTodos(jsonData);
         } catch (err) {
@@ -20,7 +20,7 @@ const ListTodos = () => {
 
     const deleteTodo = async (id) => { 
         try {
-            const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+            const deleteTodo = await fetch(`${import.meta.env.backend_base_url}/todos/${id}`, {
                 method: 'DELETE'
             });
             
